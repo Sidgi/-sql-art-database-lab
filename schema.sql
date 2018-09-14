@@ -1,39 +1,44 @@
-DROP DATABASE art_db;
-CREATE DATABASE art_db;
+-- [1] DROP tables
 
-\c art_db
-
-DROP TABLE IF EXISTS museums_artworks_xref;
+DROP TABLE IF EXISTS artworks_museums_xref;
+DROP TABLE IF EXISTS artworks;
 DROP TABLE IF EXISTS museums;
 DROP TABLE IF EXISTS artists;
-DROP TABLE IF EXISTS artworks;
 
-
-CREATE TABLE artworks (
-  id SERIAL PRIMARY KEY,
-  title VARCHAR(128) NOT NULL,
-  year SMALLINT NOT NULL,
-  category VARCHAR(128) NOT NULL,
-  artist_id INTEGER REFERENCES artists(id)
+-- [2] CREATE tables
+CREATE TABLE museums (
+  museum_id   SERIAL PRIMARY KEY,
+  museum_name VARCHAR(64) UNIQUE NOT NULL,
+  address     VARCHAR(255) NOT NULL,
+  city        VARCHAR(64) NOT NULL
 );
 
 CREATE TABLE artists (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  birth SMALLINT NOT NULL,
-  nationality VARCHAR(128) NOT NULL,
-  description VARCHAR(255) NOT NULL
+  artist_id   SERIAL PRIMARY KEY,
+  artist_name VARCHAR(128) NOT NULL,
+  birth_date  DATE,
+  nationality VARCHAR(64), -- should be a FK to a country table
+  description TEXT
 );
 
-CREATE TABLE museums (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(128) NOT NULL,
-  address VARCHAR(255) NOT NULL,
-  city VARCHAR(128) NOT NULL
+
+
+CREATE TABLE artworks (
+  art_id    SERIAL PRIMARY KEY,
+  art_name  VARCHAR(255) NOT NULL,
+  year      DATE,
+  category  VARCHAR(64),
+  artist_id INT REFERENCES artists(artist_id)
 );
 
-CREATE TABLE museums_artworks_xref(
-  museum_id INTEGER REFERENCES museums(id),
-  artwork_id INTEGER REFERENCES artworks(id),
-  PRIMARY KEY(museum_id, artwork_id)
+
+
+CREATE TABLE artworks_museums_xref (
+  art_id    INT REFERENCES artworks(art_id),
+  museum_id INT REFERENCES museums(museum_id),
+  PRIMARY KEY(art_id, museum_id)
 );
+
+CREATE INDEX museum_name_idx ON museums (museum_name);
+CREATE INDEX artist_name_idx ON artists (artist_name);
+CREATE INDEX artwork_name_idx ON artworks (art_name);
