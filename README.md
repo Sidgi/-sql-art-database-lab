@@ -1,5 +1,7 @@
 # Let's Build an Art Database
 
+![](sql-art-database-lab/sql-art-database-example.png)
+
 ## Instructions
 1. Create a folder called sql-art-database-lab
 - `cd` into the folder and create two files called seed.sql and schema.sql
