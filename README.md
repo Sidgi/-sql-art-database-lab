@@ -1,6 +1,6 @@
 # Let's Build an Art Database
 
-![](sql-art-database-lab/sql-art-database-example.png)
+![](/sql-art-database-example.png)
 
 ## Instructions
 1. Create a folder called sql-art-database-lab
