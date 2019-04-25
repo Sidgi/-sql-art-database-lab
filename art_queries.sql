@@ -7,12 +7,12 @@
 -- [3] List all of the artworks by Pablo Picasso and which museums they are currently in
 -- result set: (artwork_id, artwork_name, artwork_year, museum_id, museum_name, museum_city)
 
--- [4] oh noes, one of our disgruntled interns just quit; they have left some garbage data in the database. Please hunt down and update the fields.
--- Hint: The artist is correct but the fields are incorrent. (Google is your friend!)
+-- [4] Oh noes, one of our disgruntled interns just quit; they have left some garbage data in the database. Please hunt down and update the fields.
+-- Hint: The artist is correct but the fields are incorrect. (Google is your friend!)
 
--- [5] How mansy pieces of art does each museum have by year?
+-- [5] How many pieces of art does each museum have sorted by year?
 -- Hint: Use COUNT
 -- result set: (museum_name, artwork_count)
 
--- [6] Which museum contains the most artworks
+-- [6] Which museum contains the most artworks?
 -- result set: (museum_name, artwork_count)
