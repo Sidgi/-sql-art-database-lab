@@ -16,7 +16,7 @@ CREATE TABLE museums (
 CREATE TABLE artists (
   artist_id   SERIAL PRIMARY KEY,
   artist_name VARCHAR(128) NOT NULL,
-  birth_date  DATE,
+  birth_date  INTEGER,
   nationality VARCHAR(64), -- should be a FK to a country table
   description TEXT
 );
@@ -26,7 +26,7 @@ CREATE TABLE artists (
 CREATE TABLE artworks (
   art_id    SERIAL PRIMARY KEY,
   art_name  VARCHAR(255) NOT NULL,
-  year      DATE,
+  year      INTEGER,
   category  VARCHAR(64),
   artist_id INT REFERENCES artists(artist_id)
 );
