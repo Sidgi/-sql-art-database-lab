@@ -3,15 +3,6 @@
 ![](/sql-art-database-example.png)
 
 ## Instructions
-1. Create a folder called sql-art-database-lab
-- `cd` into the folder and create two files called seed.sql and schema.sql
-- In the schema file, we’re going to create four tables:
-  - artists
-  - artworks
-  - museums
-  - museums artworks xref
-
-4. The artists table will have the following columns: (name, birth, nationality, description)
-- The artworks table will have the following columns: (title, year, category)
-- The museums table will have the following columns: (name, address, city)
-- The museums artworks xref table will have the following columns: (museum id, artwork id)
+1. Create a database called art_db. `createdb art_db`
+1. In this folder, run the schema and seed files for the database. `psql -d art_db -f schema.sql && psql -d art_db -f seed.sql`.
+1. Open the `art_queries.sql` file and get hacking!
