@@ -1,5 +1,7 @@
 -- [1] DROP tables
-
+DROP DATABASE IF EXISTS art_db;
+CREATE DATABASE art_db;
+\c art_db;
 DROP TABLE IF EXISTS artworks_museums_xref;
 DROP TABLE IF EXISTS artworks;
 DROP TABLE IF EXISTS museums;
